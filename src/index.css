@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-    @apply bg-azulado min-h-screen flex justify-center items-center;
+    @apply bg-fondo2 bg-center bg-no-repeat bg-cover w-full min-h-screen flex justify-center items-center;
 }

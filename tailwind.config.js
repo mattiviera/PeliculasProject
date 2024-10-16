@@ -10,7 +10,9 @@ export default {
         azulado : "#253D5B"
       },
       backgroundImage:{
-        fondo: "url(/public/download.jpg)"
+        fondo: "url(/public/download.jpg)",
+        fondo2: "url(/public/download2.jpg)",
+        fondo3: "url(/public/download3.jpg)"
       }
     },
   },
