@@ -14,16 +14,25 @@ class MovieService {
     static async searchMoviesByDirector(director) {
         const response = await OMDBApi.fetchMovies(`s=movie`);
         if (response.Search) {
-        const detailedMovies = await Promise.all(
-            response.Search.map(async (movie) => {
-            const movieDetails = await OMDBApi.fetchMovieById(movie.imdbID);
-            return movieDetails;
-            })
-        );
-
-        return detailedMovies.filter(movie => movie && movie.Director && movie.Director.toLowerCase().includes(director.toLowerCase()));
+            const detailedMovies = await Promise.all(
+                response.Search.map(async (movie) => {
+                    const movieDetails = await OMDBApi.fetchMovieById(movie.imdbID);
+                    return movieDetails;
+                })
+            );
+            return detailedMovies.filter(movie => movie && movie.Director && movie.Director.toLowerCase().includes(director.toLowerCase()));
         }
         return [];
+    }
+
+    static async getMovieDetails(imdbID) {
+        try {
+            const response = await OMDBApi.fetchMovieById(imdbID);
+            return response; 
+        } catch (error) {
+            console.error('Error fetching movie details:', error);
+            return null;
+        }
     }
 }
 
