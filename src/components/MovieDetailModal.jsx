@@ -18,19 +18,38 @@ const MovieDetailModal = ({ movie, onClose }) => {
     if (!movieDetails) return <div>Cargando detalles...</div>;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white p-6 rounded-lg max-w-md w-full">
-                <h2 className="text-2xl font-bold mb-4">{movieDetails.Title}</h2>
-                <p><strong>Año:</strong> {movieDetails.Year}</p>
-                <p><strong>Director:</strong> {movieDetails.Director}</p>
-                <p><strong>Género:</strong> {movieDetails.Genre}</p>
-                <p><strong>Sinopsis:</strong> {movieDetails.Plot}</p>
-                <button onClick={onClose} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
-                    Cerrar
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 transition-opacity duration-300 ease-out">
+            <div className="bg-azulado rounded-lg shadow-lg max-w-md w-full p-6 relative transition-transform transform duration-300 ease-out scale-95 hover:scale-100">
+                <button
+                className="absolute top-2 right-2 text-white hover:text-red-600"
+                onClick={onClose}
+                >
+                ✕
                 </button>
+                
+                <div className="text-center">
+                <h2 className="text-2xl font-bold mb-4">{movieDetails.Title}</h2>
+                <img
+                    src={movieDetails.Poster !== "N/A" ? movieDetails.Poster : "https://via.placeholder.com/300x450"}
+                    alt={movieDetails.Title}
+                    className="w-40 h-auto mx-auto mb-4"
+                />
+                <p className="text-white mb-2">
+                    <span className="font-semibold">Year:</span> {movieDetails.Year}
+                </p>
+                <p className="text-white mb-2">
+                    <span className="font-semibold">Director:</span> {movieDetails.Director}
+                </p>
+                <p className="text-white mb-2">
+                    <span className="font-semibold">Genre:</span> {movieDetails.Genre}
+                </p>
+                <p className="text-white mb-2">
+                    <span className="font-semibold">Plot:</span> {movieDetails.Plot}
+                </p>
+                </div>
             </div>
-        </div>
-    );
-};
+            </div>
+        );
+    };
 
 export default MovieDetailModal;
