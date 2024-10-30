@@ -26,7 +26,7 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. **Clona el repositorio**:
 
    ```bash
-   git clone https://github.com/tu_usuario/buscador-de-peliculas.git
+   git clone https://github.com/mattiviera/peliculasProject.git
 
 2. **Navega al directorio del proyecto**:
 
